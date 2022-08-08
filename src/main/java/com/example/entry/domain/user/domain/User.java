@@ -25,14 +25,10 @@ public class User {
     @Column(length = 50, nullable = false)
     private String name;
 
-    @Column(length = 4, nullable = false)
-    private int studentId;
-
     @Builder
-    private User(String accountId, String password, String name, int studentId) {
+    private User(String accountId, String password, String name) {
         this.accountId = accountId;
         this.password = password;
         this.name = name;
-        this.studentId = studentId;
     }
 }

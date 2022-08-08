@@ -7,7 +7,10 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum ErrorCode {
 
-    INTERNAL_SERVER_ERROR(500, "내부 서버 오류입니다.");
+    USER_NOT_FOUND(404, "User Not Found"),
+    USER_EXISTS(409, "User Exists"),
+
+    INTERNAL_SERVER_ERROR(500, "Internal Server Error");
 
     private final int status;
     private final String message;
