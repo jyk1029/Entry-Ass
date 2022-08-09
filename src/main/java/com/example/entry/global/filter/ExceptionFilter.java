@@ -1,5 +1,6 @@
-package com.example.entry.global.error;
+package com.example.entry.global.filter;
 
+import com.example.entry.global.error.ErrorResponse;
 import com.example.entry.global.error.exception.CustomException;
 import com.example.entry.global.error.exception.ErrorCode;
 import com.fasterxml.jackson.databind.ObjectMapper;
