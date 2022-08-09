@@ -1,5 +1,6 @@
 package com.example.entry.global.error;
 
+import com.example.entry.global.error.exception.CustomException;
 import com.example.entry.global.error.exception.ErrorCode;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

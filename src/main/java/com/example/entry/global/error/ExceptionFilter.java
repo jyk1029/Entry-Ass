@@ -1,5 +1,6 @@
 package com.example.entry.global.error;
 
+import com.example.entry.global.error.exception.CustomException;
 import com.example.entry.global.error.exception.ErrorCode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;

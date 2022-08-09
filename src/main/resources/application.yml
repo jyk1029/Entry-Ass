@@ -16,7 +16,8 @@ spring:
 
   jwt:
     header: ${HEADER}
-    secret: ${SECRET_KEY}
+    secret: ${SECRET}
+    prefix: ${PREFIX}
     exp:
       access: ${ACCESS}
       refresh: ${REFRESH}

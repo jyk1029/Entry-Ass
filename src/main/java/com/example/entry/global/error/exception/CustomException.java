@@ -1,6 +1,5 @@
-package com.example.entry.global.error;
+package com.example.entry.global.error.exception;
 
-import com.example.entry.global.error.exception.ErrorCode;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 

@@ -7,7 +7,14 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum ErrorCode {
 
+    SIGNATURE_JWT(401, "Signature Token"),
+    EXPIRED_JWT(401, "Expired Token"),
+    INVALID_JWT(401, "Invalid Token"),
+    PASSWORD_MISMATCH(401, "Password Mismatch"),
+
     USER_NOT_FOUND(404, "User Not Found"),
+    REFRESH_TOKEN_NOT_FOUND(404, "Refresh Token Not Found"),
+
     USER_EXISTS(409, "User Already Exists"),
 
     INTERNAL_SERVER_ERROR(500, "Internal Server Error");
