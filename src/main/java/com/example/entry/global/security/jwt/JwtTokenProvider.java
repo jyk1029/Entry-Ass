@@ -17,7 +17,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
-import java.time.LocalDateTime;
 import java.util.Date;
 
 @RequiredArgsConstructor
@@ -41,6 +40,17 @@ public class JwtTokenProvider {
 
         return refreshToken;
     }
+
+    private String generateToken(String accountId, String type, Long exp) {
+        return Jwts.builder()
+                .signWith(SignatureAlgorithm.HS256, jwtProperties.getSecretKey())
+                .setSubject(accountId)
+                .claim("type", type)
+                .setIssuedAt(new Date())
+                .setExpiration(new Date(System.currentTimeMillis() + exp * 1000))
+                .compact();
+    }
+
     public String resolveToken(HttpServletRequest request) {
         String bearerToken = request.getHeader(jwtProperties.getHeader());
         if (bearerToken != null && bearerToken.startsWith(jwtProperties.getPrefix())) {
@@ -62,7 +72,6 @@ public class JwtTokenProvider {
     }
 
     private Claims getTokenBody(String token) {
-
         try {
             return Jwts.parser().setSigningKey(jwtProperties.getSecretKey())
                     .parseClaimsJws(token).getBody();
@@ -77,19 +86,5 @@ public class JwtTokenProvider {
 
     private String getTokenSubject(String token) {
         return getTokenBody(token).getSubject();
-    }
-
-    private String generateToken(String accountId, String type, Long exp) {
-        return Jwts.builder()
-                .signWith(SignatureAlgorithm.HS256, jwtProperties.getSecretKey())
-                .setSubject(accountId)
-                .claim("type", type)
-                .setIssuedAt(new Date())
-                .setExpiration(new Date(System.currentTimeMillis() + exp * 1000))
-                .compact();
-    }
-
-    public LocalDateTime getExpiredTime() {
-        return LocalDateTime.now().plusSeconds(jwtProperties.getAccessExp());
     }
 }

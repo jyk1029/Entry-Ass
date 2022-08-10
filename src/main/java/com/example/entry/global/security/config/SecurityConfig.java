@@ -30,20 +30,19 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
 
                 .sessionManagement()
-                .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+                .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
 
-//                .and()
-//                .authorizeRequests()
-//
-//
-//                .antMatchers("/user").permitAll()
-//                .antMatchers("/user/login").permitAll()
-//                .antMatchers("/user/token").permitAll()
-//
-//                .anyRequest().authenticated()
-//
-//                .and()
-//                .apply(new FilterConfig(jwtTokenProvider, objectMapper));
+                .and()
+                .authorizeRequests()
+
+
+                .antMatchers("/user").permitAll()
+                .antMatchers("/auth/tokens").permitAll()
+
+                .anyRequest().authenticated()
+
+                .and()
+                .apply(new FilterConfig(jwtTokenProvider, objectMapper));
     }
 
     @Bean
