@@ -20,7 +20,7 @@ public class Feed {
     @Column(length = 20, nullable = false)
     private String title;
 
-    @Column(length = 1000, nullable = false)
+    @Column(length = 1500, nullable = false)
     private String content;
 
     @ManyToOne(fetch = FetchType.LAZY)
