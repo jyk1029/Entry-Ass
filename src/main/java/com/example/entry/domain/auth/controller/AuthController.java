@@ -17,12 +17,12 @@ public class AuthController {
     private final TokenService tokenService;
     private final SignInService signInService;
 
-    @PutMapping("/tokens")
+    @PutMapping("/token")
     public TokenResponse userTokenRefresh(@RequestHeader("Refresh-Token") String refreshToken) {
         return tokenService.execute(refreshToken);
     }
 
-    @PostMapping("/tokens")
+    @PostMapping("/token")
     public TokenResponse signIn(@RequestBody @Valid SignInRequest signInRequest) {
         return signInService.execute(signInRequest);
     }
