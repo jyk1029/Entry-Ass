@@ -4,12 +4,10 @@ import com.example.entry.domain.auth.domain.RefreshToken;
 import com.example.entry.domain.auth.domain.repository.RefreshTokenRepository;
 import com.example.entry.global.exception.ExpiredTokenException;
 import com.example.entry.global.exception.InvalidTokenException;
-import com.example.entry.global.exception.SignatureTokenException;
 import com.example.entry.global.security.auth.AuthDetailsService;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
-import io.jsonwebtoken.SignatureException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -75,8 +73,6 @@ public class JwtTokenProvider {
         try {
             return Jwts.parser().setSigningKey(jwtProperties.getSecretKey())
                     .parseClaimsJws(token).getBody();
-        } catch (SignatureException e) {
-            throw SignatureTokenException.EXCEPTION;
         } catch (ExpiredTokenException e) {
             throw ExpiredTokenException.EXCEPTION;
         } catch (Exception e) {

@@ -17,10 +17,10 @@ public class FilterConfig extends SecurityConfigurerAdapter<DefaultSecurityFilte
     private final ObjectMapper objectMapper;
 
     @Override
-    public void configure(HttpSecurity http) {
+    public void configure(HttpSecurity builder) {
         JwtTokenFilter jwtTokenFilter = new JwtTokenFilter(jwtTokenProvider);
         ExceptionFilter exceptionFilter = new ExceptionFilter(objectMapper);
-        http.addFilterBefore(jwtTokenFilter, UsernamePasswordAuthenticationFilter.class)
-                .addFilterBefore(exceptionFilter, JwtTokenFilter.class);
+        builder.addFilterBefore(jwtTokenFilter, UsernamePasswordAuthenticationFilter.class);
+        builder.addFilterBefore(exceptionFilter, JwtTokenFilter.class);
     }
 }

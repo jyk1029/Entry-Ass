@@ -1,4 +1,4 @@
-package com.example.entry.global.security.config;
+package com.example.entry.global.redis;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.repository.configuration.EnableRedisRepositories;
