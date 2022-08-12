@@ -16,11 +16,10 @@ spring:
 
   jwt:
     header: ${HEADER}
-    secret: ${SECRET}
+    secret-key: ${SECRET}
+    access-exp: ${ACCESS}
+    refresh-exp: ${REFRESH}
     prefix: ${PREFIX}
-    exp:
-      access: ${ACCESS}
-      refresh: ${REFRESH}
 
   redis:
     host: ${REDIS_HOST}

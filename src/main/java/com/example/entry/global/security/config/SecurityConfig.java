@@ -37,7 +37,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 
                 .antMatchers("/user").permitAll()
-                .antMatchers("/auth/tokens").permitAll()
+                .antMatchers("/auth/token").permitAll()
 
                 .anyRequest().authenticated()
 
