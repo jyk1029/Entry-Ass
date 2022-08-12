@@ -31,4 +31,9 @@ public class User {
         this.password = password;
         this.name = name;
     }
+
+    public void updateUser(String password, String name) {
+        this.password = password;
+        this.name = name;
+    }
 }
