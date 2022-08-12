@@ -19,7 +19,7 @@ public class SignUpService {
 
 
     @Transactional
-    public void signUp(SignUpRequest signUpRequest) {
+    public void execute(SignUpRequest signUpRequest) {
 
         if (userRepository.findByAccountId(signUpRequest.getAccountId()).isPresent()) {
             throw UserAlreadyExistsException.EXCEPTION;

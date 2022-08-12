@@ -20,7 +20,7 @@ public class UserController {
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
     public void signUp(@RequestBody @Valid SignUpRequest signUpRequest) {
-        signUpService.signUp(signUpRequest);
+        signUpService.execute(signUpRequest);
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
