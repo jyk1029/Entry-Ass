@@ -26,6 +26,6 @@ public class UserController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping
     public void deleteUser() {
-        withdrawalService.deleteUser();
+        withdrawalService.execute();
     }
 }

@@ -15,7 +15,7 @@ public class WithdrawalService {
     private final UserFacade userFacade;
 
     @Transactional
-    public void deleteUser() {
+    public void execute() {
         User user = userFacade.getCurrentUser();
 
         userRepository.delete(user);
