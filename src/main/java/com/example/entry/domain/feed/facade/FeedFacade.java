@@ -16,5 +16,4 @@ public class FeedFacade {
         return feedRepository.findById(id)
                 .orElseThrow(() -> FeedNotFoundException.EXCEPTION);
     }
-
 }

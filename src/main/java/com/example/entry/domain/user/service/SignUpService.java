@@ -17,7 +17,6 @@ public class SignUpService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
 
-
     @Transactional
     public void execute(SignUpRequest signUpRequest) {
 

@@ -20,5 +20,4 @@ public class WithdrawalService {
 
         userRepository.delete(user);
     }
-
 }
