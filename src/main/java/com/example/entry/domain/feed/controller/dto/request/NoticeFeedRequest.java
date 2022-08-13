@@ -10,11 +10,11 @@ import javax.validation.constraints.Size;
 @NoArgsConstructor
 public class NoticeFeedRequest {
 
-    @NotNull(message = "제목은 Null이 불가하며 최대 20자까지 가능합니다")
+    @NotNull(message = "제목은 Null이 될 수 없으며 최대 20자까지 가능합니다.")
     @Size(max = 20)
     private String title;
 
-    @NotNull(message = "내용는 Null이 불가하며 최대 1500자까지 가능합니다.")
+    @NotNull(message = "내용는 Null이 될 수 없으며 최대 1500자까지 가능합니다.")
     @Size(max = 1500)
     private String content;
 }
