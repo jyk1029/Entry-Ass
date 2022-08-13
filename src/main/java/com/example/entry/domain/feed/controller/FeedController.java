@@ -1,8 +1,10 @@
 package com.example.entry.domain.feed.controller;
 
 import com.example.entry.domain.feed.controller.dto.request.NoticeFeedRequest;
-import com.example.entry.domain.feed.facade.DeleteFeedService;
+import com.example.entry.domain.feed.controller.dto.request.UpdateFeedRequest;
+import com.example.entry.domain.feed.service.DeleteFeedService;
 import com.example.entry.domain.feed.service.NoticeFeedService;
+import com.example.entry.domain.feed.service.UpdateFeedService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -16,6 +18,7 @@ public class FeedController {
 
     private final NoticeFeedService noticeFeedService;
     private final DeleteFeedService deleteFeedService;
+    private final UpdateFeedService updateFeedService;
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
@@ -27,5 +30,12 @@ public class FeedController {
     @DeleteMapping("/{feed-id}")
     public void deleteFeed(@PathVariable("feed-id") Integer feedId) {
         deleteFeedService.execute(feedId);
+    }
+
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @PutMapping("/{feed-id}")
+    public void updateFeed(@PathVariable("feed-id") Integer feedId,
+                           @RequestBody @Valid UpdateFeedRequest updateFeedRequest) {
+        updateFeedService.execute(feedId, updateFeedRequest);
     }
 }
