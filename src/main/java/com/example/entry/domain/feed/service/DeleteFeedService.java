@@ -1,8 +1,9 @@
-package com.example.entry.domain.feed.facade;
+package com.example.entry.domain.feed.service;
 
 import com.example.entry.domain.feed.domain.Feed;
 import com.example.entry.domain.feed.domain.repository.FeedRepository;
 import com.example.entry.domain.feed.exception.CannotBeDeletedException;
+import com.example.entry.domain.feed.facade.FeedFacade;
 import com.example.entry.domain.user.domain.User;
 import com.example.entry.domain.user.facade.UserFacade;
 import lombok.RequiredArgsConstructor;
