@@ -19,7 +19,7 @@ public class DeleteFeedService {
     private final FeedRepository feedRepository;
 
     @Transactional
-    public void execute(Integer feedId) {
+    public void execute(Long feedId) {
         User user = userFacade.getCurrentUser();
         Feed feed = feedFacade.getFeedById(feedId);
 

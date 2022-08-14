@@ -18,7 +18,7 @@ public class UpdateFeedService {
     private final FeedFacade feedFacade;
 
     @Transactional
-    public void execute(Integer feedId, UpdateFeedRequest updateFeedRequest) {
+    public void execute(Long feedId, UpdateFeedRequest updateFeedRequest) {
 
         User user = userFacade.getCurrentUser();
         Feed feed = feedFacade.getFeedById(feedId);
