@@ -28,13 +28,13 @@ public class FeedController {
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping("/{feed-id}")
-    public void deleteFeed(@PathVariable("feed-id") Integer feedId) {
+    public void deleteFeed(@PathVariable("feed-id") Long feedId) {
         deleteFeedService.execute(feedId);
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @PutMapping("/{feed-id}")
-    public void updateFeed(@PathVariable("feed-id") Integer feedId,
+    public void updateFeed(@PathVariable("feed-id") Long feedId,
                            @RequestBody @Valid UpdateFeedRequest updateFeedRequest) {
         updateFeedService.execute(feedId, updateFeedRequest);
     }
